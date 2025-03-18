@@ -4,107 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Défis C++ interactifs !</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f4f4f4; }
-        h1 { color: #007acc; }
-        button { background: #28a745; color: white; padding: 10px; border: none; cursor: pointer; margin-top: 10px; font-size: 18px; }
-        button:hover { background: #218838; }
-        input { padding: 8px; font-size: 16px; width: 50%; margin-top: 10px; text-align: center; }
-        #message { margin-top: 20px; font-weight: bold; font-size: 18px; }
-        #exempleCode { margin-top: 20px; font-family: 'Courier New', monospace; background: #222; color: #00ff00; padding: 10px; display: none; }
-        #score { font-size: 20px; font-weight: bold; margin-top: 20px; color: #007acc; }
-        #progression { margin-top: 20px; padding: 10px; background: white; border-radius: 8px; display: inline-block; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Défis interactifs pour apprendre le C++ !</h1>
     <p id="score">Score : 0</p>
-    <p id="question">Défi 1 : Quelle commande permet d'afficher du texte en C++ ?</p>
+    <p id="question">Quelle commande permet d'afficher du texte en C++ ?</p>
     <input type="text" id="codeInput" placeholder="Écris ici...">
     <button onclick="verifierCode()">Vérifier</button>
     <p id="message"></p>
     <pre id="exempleCode"></pre>
 
-    <div id="progression">
-        <p><strong>Progression :</strong></p>
-        <ul>
-            <li id="level1">❌ Défi 1 : `cout`</li>
-            <li id="level2">❌ Défi 2 : `int`</li>
-            <li id="level3">❌ Défi 3 : `float`</li>
-            <li id="level4">❌ Défi 4 : `for`</li>
-        </ul>
-    </div>
-
-    <script>
-        let niveau = 1;
-        let score = 0;
-
-        function verifierCode() {
-            let code = document.getElementById("codeInput").value.trim().toLowerCase();
-            let message = document.getElementById("message");
-            let exempleCode = document.getElementById("exempleCode");
-            let question = document.getElementById("question");
-            let scoreDisplay = document.getElementById("score");
-
-            if (niveau === 1 && code === "cout") {
-                score += 10;
-                document.getElementById("level1").innerHTML = "✅ Défi 1 : `cout`";
-                message.innerHTML = "Bravo ! `cout` permet d'afficher du texte 🎉";
-                exempleCode.innerText = `#include <iostream>
-using namespace std;
-
-int main() {
-    cout << "Bonjour, C++ !"; 
-    return 0;
-}`;
-                niveau++;
-                passerAuProchainDefi("Défi 2 : Quel type permet de stocker un nombre entier ?");
-            } 
-            else if (niveau === 2 && code === "int") {
-                score += 10;
-                document.getElementById("level2").innerHTML = "✅ Défi 2 : `int`";
-                message.innerHTML = "Bien joué ! `int` est un type entier 📊";
-                exempleCode.innerText = `int nombre = 10;
-cout << "Le nombre est " << nombre;`;
-                niveau++;
-                passerAuProchainDefi("Défi 3 : Quel mot-clé définit une variable décimale ?");
-            }
-            else if (niveau === 3 && code === "float") {
-                score += 10;
-                document.getElementById("level3").innerHTML = "✅ Défi 3 : `float`";
-                message.innerHTML = "Excellent ! `float` stocke les nombres décimaux 🌊";
-                exempleCode.innerText = `float pi = 3.14;
-cout << "La valeur de Pi est " << pi;`;
-                niveau++;
-                passerAuProchainDefi("Défi 4 : Quel mot-clé est utilisé pour une boucle ?");
-            }
-            else if (niveau === 4 && code === "for") {
-                score += 10;
-                document.getElementById("level4").innerHTML = "✅ Défi 4 : `for`";
-                message.innerHTML = "Génial ! `for` permet de créer des boucles 🔁";
-                exempleCode.innerText = `for(int i = 0; i < 5; i++) {
-    cout << "i = " << i << endl;
-}`;
-                message.innerHTML += "<br><br> 🎉 Félicitations ! Tu as complété tous les défis.";
-            }
-            else {
-                message.innerHTML = "Essaie encore ! Ce n'est pas la bonne réponse. 🤔";
-                message.style.color = "red";
-                return;
-            }
-
-            message.style.color = "green";
-            scoreDisplay.innerHTML = "Score : " + score;
-            exempleCode.style.display = "block";
-        }
-
-        function passerAuProchainDefi(nouvelleQuestion) {
-            setTimeout(() => {
-                document.getElementById("question").innerHTML = nouvelleQuestion;
-                document.getElementById("codeInput").value = "";
-                document.getElementById("exempleCode").style.display = "none";
-            }, 3000);
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprendre le C++ de manière ludique !</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #007acc; }
+        button { background: #28a745; color: white; padding: 10px; border: none; cursor: pointer; margin-top: 10px; }
+        button:hover { background: #218838; }
+        input { padding: 8px; font-size: 16px; width: 50%; margin-top: 10px; }
+        #message { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Apprendre le C++ en s'amusant !</h1>
+    <p>Essaye d'écrire une commande C++ dans la boîte ci-dessous :</p>
+    <input type="text" id="codeInput" placeholder="Écris du pseudo-code ici...">
+    <button onclick="verifierCode()">Vérifier</button>
+    <p id="message"></p>
+
+    <script>
+        function verifierCode() {
+            let code = document.getElementById("codeInput").value.trim().toLowerCase();
+            let message = document.getElementById("message");
+
+            if (code === "cout") {
+                message.innerHTML = "Bravo ! `cout` permet d'afficher du texte en C++ 🎉";
+                message.style.color = "green";
+            } else if (code === "int") {
+                message.innerHTML = "`int` est un type de variable qui représente un nombre entier ! 📊";
+                message.style.color = "blue";
+            } else {
+                message.innerHTML = "Essaie encore ! Ce n'est pas une commande C++ reconnue. 🤔";
+                message.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défis C++ interactifs !</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f4f4f4; }
+        h1 { color: #007acc; }
+        button { background: #28a745; color: white; padding: 10px; border: none; cursor: pointer; margin-top: 10px; font-size: 18px; }
+        button:hover { background: #218838; }
+        input { padding: 8px; font-size: 16px; width: 50%; margin-top: 10px; text-align: center; }
+        #message { margin-top: 20px; font-weight: bold; font-size: 18px; }
+        #exempleCode { margin-top: 20px; font-family: 'Courier New', monospace; background: #222; color: #00ff00; padding: 10px; display: none; }
+    </style>
+</head>
+<body>
+    <h1>Défis interactifs pour apprendre le C++ !</h1>
+    <p id="question">Défi 1 : Quelle commande permet d'afficher du texte en C++ ?</p>
+    <input type="text" id="codeInput" placeholder="Écris ici...">
+    <button onclick="verifierCode()">Vérifier</button>
+    <p id="message"></p>
+    <pre id="exempleCode"></pre>
+
+    <script>
+        let niveau = 1;
+
+        function verifierCode() {
+            let code = document.getElementById("codeInput").value.trim().toLowerCase();
+            let message = document.getElementById("message");
+            let exempleCode = document.getElementById("exempleCode");
+            let question = document.getElementById("question");
+
+            if (niveau === 1 && code === "cout") {
+                message.innerHTML = "Bravo ! `cout` permet d'afficher du texte 🎉";
+                message.style.color = "green";
+                exempleCode.style.display = "block";
+                exempleCode.innerText = `#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Bonjour, C++ !"; 
+    return 0;
+}`;
+                niveau++;
+                setTimeout(() => {
+                    question.innerHTML = "Défi 2 : Quel type permet de stocker un nombre entier ?";
+                    document.getElementById("codeInput").value = "";
+                    exempleCode.style.display = "none";
+                }, 3000);
+            } 
+            else if (niveau === 2 && code === "int") {
+                message.innerHTML = "Bien joué ! `int` est un type entier 📊";
+                message.style.color = "blue";
+                exempleCode.style.display = "block";
+                exempleCode.innerText = `int nombre = 10;
+cout << "Le nombre est " << nombre;`;
+                niveau++;
+                setTimeout(() => {
+                    question.innerHTML = "Défi 3 : Quel mot-clé définit une variable décimale ?";
+                    document.getElementById("codeInput").value = "";
+                    exempleCode.style.display = "none";
+                }, 3000);
+            }
+            else if (niveau === 3 && code === "float") {
+                message.innerHTML = "Excellent ! `float` stocke les nombres décimaux 🌊";
+                message.style.color = "purple";
+                exempleCode.style.display = "block";
+                exempleCode.innerText = `float pi = 3.14;
+cout << "La valeur de Pi est " << pi;`;
+                message.innerHTML += "<br><br> 🎉 Félicitations ! Tu as complété les 3 premiers défis.";
+            }
+            else {
+                message.innerHTML = "Essaie encore ! Ce n'est pas la bonne réponse. 🤔";
+                message.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

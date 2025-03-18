@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 50px;
+}
+
+h1 {
+    color: #007acc;
+}
+
+button {
+    background: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #218838;
+}
+
+input {
+    padding: 8px;
+    font-size: 16px;
+    width: 50%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#message {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#exempleCode {
+    margin-top: 20px;
+    font-family: 'Courier New', monospace;
+    background: #222;
+    color: #00ff00;
+    padding: 10px;
+    display: none;
+}
+
+#score {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #007acc;
+}
+
+#progression {
+    margin-top: 20px;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    display: inline-block;
+}

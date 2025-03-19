@@ -3,17 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Défis C++ interactifs !</title>
+    <title>Apprends le C++ !</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Défis interactifs pour apprendre le C++ !</h1>
-    <p id="score">Score : 0</p>
-    <p id="question">Quelle commande permet d'afficher du texte en C++ ?</p>
-    <input type="text" id="codeInput" placeholder="Écris ici...">
-    <button onclick="verifierCode()">Vérifier</button>
-    <p id="message"></p>
-    <pre id="exempleCode"></pre>
+    <div class="container">
+        <header>
+            <h1>Apprendre le C++ 📚</h1>
+        </header>
+
+        <div id="lesson-container">
+            <h2 id="lessonTitle">Chargement...</h2>
+            <p id="lessonContent"></p>
+            <pre id="lessonCode"></pre>
+            <button id="nextLesson" onclick="prochaineLecon()">Suivant ➡️</button>
+        </div>
+
+        <nav>
+            <button onclick="afficherLecons()">📖 Leçons</button>
+            <button onclick="afficherExercices()">📝 Exercices</button>
+            <button onclick="afficherProgression()">🏆 Progression</button>
+        </nav>
+    </div>
 
     <script src="script.js"></script>
 </body>
